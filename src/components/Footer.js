@@ -3,7 +3,7 @@ function Footer() {
 
   return (
     <footer className="footer">
-      <p className="footer__copyright">&#64; {currentYear} Mesto Russia</p>
+      <p className="footer__copyright">&#64; {currentYear} Усманов Алексей</p>
     </footer>
   );
 }

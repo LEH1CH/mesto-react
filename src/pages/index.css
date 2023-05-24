@@ -5,6 +5,9 @@
 /*page*/
 @import url(../blocks/page/page.css);
 
+/*body-style*/
+@import url(../blocks/body-style/body-style.css);
+
 /*link*/
 @import url(../blocks/link/link.css);
 

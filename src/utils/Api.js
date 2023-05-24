@@ -24,7 +24,7 @@ class Api {
   }
 
   //Метод формирования запроса для изменения данных профиля
-  modifyProfileData({ userName, userJob }) {
+  modifyProfileData({ name, about }) {
     const path = `${this._server}/${this._group}/${this._profileDataPath}`;
     const message = {
       method: "PATCH",
@@ -33,8 +33,8 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: userName,
-        about: userJob,
+        name: name,
+        about: about,
       }),
     };
     return this._requestServer(path, message);
@@ -78,6 +78,21 @@ class Api {
         name: name,
         link: link,
       }),
+    };
+    return this._requestServer(path, message);
+  }
+
+  //Метод формирования запроса для установки или снятия лайка
+  changeLikeCardStatus(cardId, isLiked) {
+    const path = `${this._server}/${this._group}/${this._cardsDataPath}/${
+      cardId + "/likes"
+    }`;
+    const action = isLiked ? "DELETE" : "PUT";
+    const message = {
+      method: action,
+      headers: {
+        authorization: this._token,
+      },
     };
     return this._requestServer(path, message);
   }
